@@ -64,14 +64,17 @@ if (mysqli_num_rows($result) > 0) {
         </div>
     </div>
     <div class="menu">
-        <div class="menu-item">
-            <img src="..\Icon\icon-profile.png" alt="ข้อมูลส่วนตัว">
-            <p>ข้อมูลส่วนตัว</p>
-        </div>
-        <div class="menu-item">
-            <img src="..\Icon\icon_regis.png" alt="ใบสมัครสหกิจ">
-            <p>ใบสมัครสหกิจ</p>
-        </div>
+    <a href="company_edit.php" class="menu-item"> 
+        <img src="../Icon/icon-profile.png" alt="ข้อมูลส่วนตัว">
+        <p>ข้อมูลส่วนตัว</p>
+    </a>
+
+    <a href="company_application.php" class="menu-item">
+        <img src="../Icon/icon_regis.png" alt="ใบสมัครสหกิจ">
+        <p>ใบสมัครสหกิจ</p>
+    </a>
+</div>
+
     </div>
 </body>
 </html>
