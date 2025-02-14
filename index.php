@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                     header("Location: Professor-Page\professor_dashboard.php");
                     break;
                 case 'Company':
-                    header("Location: company_dashboard.php");
+                    header("Location: Company-Page\company_dashboard.php");
                     break;
                 case 'Admin':
                     header("Location: admin_dashboard.php");
