@@ -49,7 +49,7 @@ if (mysqli_num_rows($result) > 0) {
             </div> 
             <div class="menu-sidebar" id="menuSidebar">
                 <a href="#"><img src="../Icon/i1.png" alt="Home Icon"> หน้าหลัก</a>
-                <a href="#"><img src="../Icon/i2.png" alt="Profile Icon"> ข้อมูลส่วนตัว</a>
+                <a href="profile_student.php"><img src="../Icon/i2.png" alt="Profile Icon"> ข้อมูลส่วนตัว</a>
                 <a href="#"><img src="../Icon/i3.png" alt="Form Icon"> กรอกใบสมัคร</a>
                 <a href="#"><img src="../Icon/i4.png" alt="Status Icon"> สถานะ</a>
             </div>
@@ -70,8 +70,8 @@ if (mysqli_num_rows($result) > 0) {
     </div>
     <div class="menu">
         <div class="menu-item">
-            <img src="..\Icon\icon-profile.png" alt="ข้อมูลส่วนตัว">
-            <p>ข้อมูลส่วนตัว</p>
+            <a href="profile_student.php"><img src="..\Icon\icon-profile.png" alt="ข้อมูลส่วนตัว"></a>
+            <a href="profile_student.php"><p>ข้อมูลส่วนตัว</p></a>
         </div>
         <div class="menu-item">
             <img src="..\Icon\icon-form.png" alt="กรอกใบสมัคร">
