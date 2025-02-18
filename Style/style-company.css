@@ -258,6 +258,7 @@ body {
     text-align: center;
    
 }
+
 .profile-card img {
     width: 130px;
     height: 130px;
@@ -510,4 +511,16 @@ input[type="file"] {
 }
 .button-group a {
     text-decoration: none;
+}
+.table-wrapper {
+    display: flex;
+    gap: 20px; /* Add space between the tables */
+}
+.profile-card2 {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #ffffff;
+    width: 200px;
+    height: 400px;
 }
