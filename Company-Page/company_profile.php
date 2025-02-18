@@ -76,16 +76,6 @@ $firstLetter = strtoupper(substr($company['comp_name'], 0, 1));  // Get the firs
             </div>
         
         <div class="table-wrapper">
-            <table class="profile-card">
-                <tr>
-                    <th>ชื่อบริษัท</th>
-                    <td><?= htmlspecialchars($company['comp_name']) ?></td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td><?= htmlspecialchars($company['comp_contact']) ?></td>
-                </tr>
-            </table>
 
             <table class="table">
                 <tr>
@@ -120,6 +110,16 @@ $firstLetter = strtoupper(substr($company['comp_name'], 0, 1));  // Get the firs
                         จ.<?= htmlspecialchars($company['comp_province']) ?> 
                         <?= htmlspecialchars($company['comp_postcode']) ?>
                     </td>
+                </tr>
+            </table>
+            <table class="profile-card">
+                <tr>
+                    <th>ชื่อบริษัท</th>
+                    <td><?= htmlspecialchars($company['comp_name']) ?></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><?= htmlspecialchars($company['comp_contact']) ?></td>
                 </tr>
             </table>
         </div>
