@@ -105,12 +105,12 @@ $firstLetter = strtoupper(substr($company['comp_name'], 0, 1));  // Get the firs
                 <div class ="fix-text">
                     <div><p>ชื่อบริษัท:</p></div>
                     <div><p>ชื่อ-สกุล (HR):</p></div>
-                    <div><p>ตำแหน่ง</p></div>
+                    <div><p>ตำแหน่ง:</p></div>
                     <div><p>Email:</p></div>
                     <div><p>โทรศัพท์:</p></div>
                     <div><p>ที่อยู่</p></div>
                  </div>
-                <div class="nonfix-text">
+                <div class="fix-text">
                     <div><?= htmlspecialchars($company['comp_name']) ?></p></div>
                     <div><p><?= htmlspecialchars($company['comp_hr_name']) ?></p></div>
                     <div><p><?= htmlspecialchars($company['comp_hr_depart']) ?></p></div>
