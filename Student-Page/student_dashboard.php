@@ -48,10 +48,10 @@ if (mysqli_num_rows($result) > 0) {
                 <img src="../Icon/i5.png" alt="Menu Icon">
             </div> 
             <div class="menu-sidebar" id="menuSidebar">
-                <a href="#"><img src="../Icon/i1.png" alt="Home Icon"> หน้าหลัก</a>
+                <a href="student_dashboard.php"><img src="../Icon/i1.png" alt="Home Icon"> หน้าหลัก</a>
                 <a href="profile_student.php"><img src="../Icon/i2.png" alt="Profile Icon"> ข้อมูลส่วนตัว</a>
-                <a href="#"><img src="../Icon/i3.png" alt="Form Icon"> กรอกใบสมัคร</a>
-                <a href="#"><img src="../Icon/i4.png" alt="Status Icon"> สถานะ</a>
+                <a href="application_form.php"><img src="../Icon/i3.png" alt="Form Icon"> กรอกใบสมัคร</a>
+                <a href="status_student.php"><img src="../Icon/i4.png" alt="Status Icon"> สถานะ</a>
             </div>
         </div>
         <div class="logo-psu"><img src="../Icon/icon-psu.png" alt="PSU Logo"></div>
@@ -62,7 +62,7 @@ if (mysqli_num_rows($result) > 0) {
         
             <button class="dropbtn"><i class="fas fa-chevron-down"></i></button>
             <div class="dropdown-content">
-                <a href="#"><img src="../Icon/i6.png" alt="EditProfile Icon">จัดการบัญชี</a>
+                <a href="edit_profile_student.php"><img src="../Icon/i6.png" alt="EditProfile Icon">จัดการบัญชี</a>
                 <a href="../logout.php"><img src="../Icon/i7.png" alt="Logout Icon">ออกจากระบบ</a>
             </div>
         </div>
@@ -74,12 +74,12 @@ if (mysqli_num_rows($result) > 0) {
             <a href="profile_student.php"><p>ข้อมูลส่วนตัว</p></a>
         </div>
         <div class="menu-item">
-            <img src="..\Icon\icon-form.png" alt="กรอกใบสมัคร">
-            <p>กรอกใบสมัคร</p>
+            <a href="application_form.php"><img src="..\Icon\icon-form.png" alt="กรอกใบสมัคร"></a>
+            <a href="application_form.php"><p>กรอกใบสมัคร</p></a>
         </div>
         <div class="menu-item">
-            <img src="..\Icon\icon-status.png" alt="ตรวจสอบสถานะ">
-            <p>ตรวจสอบสถานะ</p>
+            <a href="status_student.php"><img src="..\Icon\icon-status.png" alt="ตรวจสอบสถานะ"></a>
+            <a href="status_student.php"><p>ตรวจสอบสถานะ</p></a>
         </div>
     </div>
 </body>

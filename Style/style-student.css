@@ -42,6 +42,7 @@ body {
     font-weight: 200;
     font-family: "Prompt", Helvetica, sans-serif;
     padding: 50px;
+
 }
 .menu-item img {
     width: 250px;
@@ -54,6 +55,10 @@ body {
 .menu-item p {
     margin-top: 10px;
     font-size: 18px;
+    color: black;
+}
+.menu-item a {
+    text-decoration: none;
 }
 .logo-psu img{
     width: 52px;
@@ -209,7 +214,7 @@ body {
     font-family: "Prompt";
 }
 .container {
-    max-width:125vh;
+    max-width:151vh;
     height: 88vh;
     margin-left: auto;
     background: white;
@@ -328,4 +333,181 @@ body {
 .in-info{
     margin-top: 45px;
     
+}
+.edit-profile-content{
+    display: flex;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    /*margin-left: 90px;*/
+    text-align: left;
+    font-size: 22px;
+}
+
+.container-edit {
+    max-width:151vh;
+    height: 88vh;
+    margin-left: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+    
+    
+}
+.header-profile-edit {
+    display: flex;
+    gap: 10px;
+    margin-left: 85px;
+    padding-bottom: 50px;
+    
+}
+.header-profile-edit a {
+    border: 1px solid rgb(199, 199, 199);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 7px;
+    text-decoration: none;
+    color: black;
+}
+.header-profile2-edit{
+    text-align: left;
+    margin-left: 85px;
+    font-size: 30px;
+    font-style: normal;
+}
+
+.header-profile-edit .Y-button {
+    background-color: #FBDB48;
+}
+
+
+.edit-all-profile .info-edit{
+    display: flex;
+    flex-direction: column;
+    
+}
+.info-edit{
+    display: contents;
+}
+
+.info-edit input{
+    width: 280px;
+    height: 20px;
+    margin-left: 80px;
+    padding: 8px;
+    margin-bottom: 3px;
+    font-size: 18px;
+    margin-bottom: 2px;
+    margin-top: 10px;
+    
+    
+    
+}
+
+.edit-all-profile{
+    display: flex;
+    flex-direction: row;
+}
+.edit-fix-info p{
+    text-align: left;
+    margin-left: 90px;
+    font-size: 20px;
+    
+}
+
+.edit-img{
+    display: flex;
+    flex-direction: column;
+    margin-left: 90px;
+    align-items: center;
+    
+}
+
+input[type="file"] {
+    margin-top: 40px;
+    color: transparent;
+    
+    
+}
+
+.custom-file-upload {
+    display: inline-block;
+    width: 110px;
+    padding: 6px 24px;
+    background-color: rgb(194, 194, 194); /* สีเหลือง */
+    color: black; /* สีข้อความ */
+    font-size: 18px;
+    border-radius: 15px; /* ความโค้งมน */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.custom-file-upload:hover {
+    background-color: #FBDB48; /* สีเหลืองเข้มขึ้นเมื่อ hover */
+}
+
+.custom-file-upload input {
+    display: none; /* ซ่อน input file */
+}
+
+.edit-img p{
+    color: red;
+}
+
+
+.button-group{
+    margin-top: 40px;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+.button-group button{
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: none;
+    
+}
+
+.b-red{
+    background-color: #fd9393;
+    color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.b-red img{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    margin-left: 10px;
+    
+}
+.b-red a{
+    font-family: "Prompt", sans-serif;
+    font-size: 18px;
+    
+    
+}
+.b-blue{
+    background-color: rgb(151, 151, 253);
+    color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.b-blue{
+    font-family: "Prompt", sans-serif;
+    font-size: 18px;
+}
+
+.b-green{
+    background-color: rgb(140, 255, 140);
+    color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.b-green{
+    font-family: "Prompt", sans-serif;
+    font-size: 18px;
+}
+.button-group a {
+    text-decoration: none;
 }
