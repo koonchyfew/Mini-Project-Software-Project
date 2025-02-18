@@ -1,39 +1,59 @@
 <?php
-session_start();  // Start session
+session_start();
+include '../config.php';  // ปรับให้แน่ใจว่า path ถูกต้อง
 
-// Include config.php to connect to the database
-include '../config.php';  // Make sure the file path is correct
-
-// Check if user is authorized to view this page
-if (!isset($_SESSION['u_type']) || $_SESSION['u_type'] != 'Company') {
+// ตรวจสอบว่าผู้ใช้เข้าสู่ระบบหรือไม่
+if (!isset($_SESSION['u_type'])) {
     header("Location: ../index.php");
     exit();
 }
 
-// Check if session contains 'u_id'
-if (!isset($_SESSION['u_id'])) {
-    die("Error: Missing u_id in session.");
+// ตรวจสอบสิทธิ์ผู้ใช้ (ต้องเป็น Company เท่านั้น)
+if ($_SESSION['u_type'] != 'Company') {
+    header("Location: ../unauthorized.php");
+    exit();
 }
 
-$u_id = $_SESSION['u_id'];  // Get u_id from session
+// ดึงข้อมูลบริษัทจากฐานข้อมูล
+$u_id = $_SESSION['u_id']; // รับค่าจาก session ที่เก็บ user_id
+$query = "SELECT 
+            c.comp_name, c.comp_hr_name, c.comp_hr_depart, c.comp_contact, c.comp_tel,
+            c.comp_num_add, c.comp_mu, c.comp_road, c.comp_alley, c.comp_sub_district, 
+            c.comp_district, c.comp_province, c.comp_postcode,
+            u.username, u.u_type
+          FROM Company c 
+          JOIN users u ON c.u_id = u.u_id
+          WHERE c.u_id = '$u_id'";
 
-// Retrieve company information from the database
-$query = "SELECT comp_name, comp_hr_name, comp_hr_depart, comp_contact, comp_tel, 
-                 comp_num_add, comp_mu, comp_road, comp_alley, comp_sub_district, 
-                 comp_district, comp_province, comp_postcode 
-          FROM Company WHERE u_id = '$u_id'";
+$result = mysqli_query($conn, $query); // ดำเนินการคำสั่ง SQL
 
-$result = mysqli_query($conn, $query);
+// ตรวจสอบว่ามีข้อมูลหรือไม่
+if (mysqli_num_rows($result) > 0) {
+    // ดึงข้อมูลมาเก็บในตัวแปร
+    $row = mysqli_fetch_assoc($result);
+    $Comp_Name = $row['comp_name']; // ชื่อบริษัท
+    $Comp_HR_Name = $row['comp_hr_name']; // ชื่อ HR
+    $Comp_HR_Depart = $row['comp_hr_depart']; // แผนก HR
+    $Comp_Contact = $row['comp_contact']; // อีเมลติดต่อ
+    $Comp_Tel = $row['comp_tel']; // เบอร์โทรบริษัท
+    $Comp_Num_Add = $row['comp_num_add']; // บ้านเลขที่
+    $Comp_Mu = $row['comp_mu']; // หมู่
+    $Comp_Road = $row['comp_road']; // ถนน
+    $Comp_Alley = $row['comp_alley']; // ซอย
+    $Comp_Sub_District = $row['comp_sub_district']; // ตำบล
+    $Comp_District = $row['comp_district']; // อำเภอ
+    $Comp_Province = $row['comp_province']; // จังหวัด
+    $Comp_Postcode = $row['comp_postcode']; // รหัสไปรษณีย์
+    $Username = $row['username']; // ชื่อผู้ใช้
+    $User_Type = $row['u_type']; // ประเภทผู้ใช้
 
-if ($result && mysqli_num_rows($result) > 0) {
-    $company = mysqli_fetch_assoc($result);
+    // ดึงตัวอักษรตัวแรกของชื่อบริษัท
+    $firstLetter = mb_substr($Comp_Name, 0, 1, "UTF-8");
 } else {
     die("No company data found.");
 }
-
-// Get the first letter of the company name
-$firstLetter = strtoupper(substr($company['comp_name'], 0, 1));  // Get the first letter of the company name
 ?>
+
 
 
 <!DOCTYPE html>
@@ -62,7 +82,7 @@ $firstLetter = strtoupper(substr($company['comp_name'], 0, 1));  // Get the firs
         </div>
         <div class="logo-psu"><img src="../Icon/icon-psu.png" alt="PSU Logo"></div>
         <div class="bar-user">
-        <div class="user"><?= htmlspecialchars($company['comp_name']) ?></div>
+        <div class="user"><?= $Comp_Name ?></div>
         <div class="profile-circle"><?= $firstLetter ?></div>
         <div class="dropdown">
         
@@ -89,12 +109,12 @@ $firstLetter = strtoupper(substr($company['comp_name'], 0, 1));  // Get the firs
                 
                 <div class="profile-info">
                     <div>
-                        <h2><?= htmlspecialchars($company['comp_name']) ?></h2>
+                        <h2><?= $Comp_Name ?></h2>
                         <a href="company_update.php" class="edit-link">แก้ไขข้อมูลส่วนตัว</a>
                     </div>
                     <div class="in-info">
                         <p>Email address</p>
-                        <p><?= htmlspecialchars($company['comp_contact']) ?></p>
+                        <p><?= $Comp_Contact ?></p>
                     </div>
                 </div>
 
@@ -104,26 +124,26 @@ $firstLetter = strtoupper(substr($company['comp_name'], 0, 1));  // Get the firs
 
                 <div class ="fix-text">
                     <div><p>ชื่อบริษัท:</p></div>
-                    <div><p>ชื่อ-สกุล (HR):</p></div>
+                    <div><p>ชื่อ-สกุล(HR):</p></div>
                     <div><p>ตำแหน่ง:</p></div>
                     <div><p>Email:</p></div>
                     <div><p>โทรศัพท์:</p></div>
-                    <div><p>ที่อยู่</p></div>
+                    <div><p>ที่อยู่:</p></div>
                  </div>
-                <div class="fix-text">
-                    <div><?= htmlspecialchars($company['comp_name']) ?></p></div>
-                    <div><p><?= htmlspecialchars($company['comp_hr_name']) ?></p></div>
-                    <div><p><?= htmlspecialchars($company['comp_hr_depart']) ?></p></div>
-                    <div><p><?= htmlspecialchars($company['comp_contact']) ?></p></div>
-                    <div><p><?= htmlspecialchars($company['comp_tel']) ?></p></div>
-                    <div><p> <?= htmlspecialchars($company['comp_num_add']) ?> 
-                        ม. <?= htmlspecialchars($company['comp_mu']) ?> 
-                        ถนน <?= htmlspecialchars($company['comp_road']) ?> 
-                        ซอย <?= htmlspecialchars($company['comp_alley']) ?> 
-                        ต.<?= htmlspecialchars($company['comp_sub_district']) ?> 
-                        อ.<?= htmlspecialchars($company['comp_district']) ?> 
-                        จ.<?= htmlspecialchars($company['comp_province']) ?> 
-                        <?= htmlspecialchars($company['comp_postcode']) ?></p></div>
+                <div class="nonfix-text">
+                    <div><?= $Comp_Name ?></p></div>
+                    <div><p><?= $Comp_HR_Name ?></p></div>
+                    <div><p><?= $Comp_HR_Depart ?></p></div>
+                    <div><p><?= $Comp_Contact ?></p></div>
+                    <div><p><?= $Comp_Tel ?></p></div>
+                    <div><p><?= $Comp_Num_Add ?> 
+                        ม. <?= $Comp_Mu ?> 
+                        ถนน <?= $Comp_Road ?> 
+                        ซอย <?= $Comp_Alley ?> 
+                        ต.<?= $Comp_Sub_District ?> 
+                        อ.<?= $Comp_District ?> 
+                        จ.<?= $Comp_Province ?> 
+                        <?= $Comp_Postcode ?></p></div>
                 </div>
             </div>
         </div>
