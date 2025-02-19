@@ -109,7 +109,7 @@ if (mysqli_num_rows($result) > 0) {
                 
                 <div class="profile-info">
                     <div>
-                        <h2><?= $Comp_Name ?></h2>
+                        <h2><?= $Comp_Name?></h2>
                         <a href="company_update.php" class="edit-link">แก้ไขข้อมูลส่วนตัว</a>
                     </div>
                     <div class="in-info">
@@ -123,20 +123,20 @@ if (mysqli_num_rows($result) > 0) {
             <div class="info-list">
 
                 <div class ="fix-text">
-                    <div><p>ชื่อบริษัท:</p></div>
-                    <div><p>ชื่อ-สกุล(HR):</p></div>
-                    <div><p>ตำแหน่ง:</p></div>
-                    <div><p>Email:</p></div>
-                    <div><p>โทรศัพท์:</p></div>
-                    <div><p>ที่อยู่:</p></div>
+                    <div>บริษัท: </p></div>
+                    <div>ชื่อ-สกุล:</p></div>
+                    <div>ตำแหน่ง:</p></div>
+                    <div>Email:</p></div>
+                    <div>โทรศัพท์:</p></div>
+                    <div>ที่อยู่:</p></div>
                  </div>
                 <div class="nonfix-text">
                     <div><?= $Comp_Name ?></p></div>
-                    <div><p><?= $Comp_HR_Name ?></p></div>
-                    <div><p><?= $Comp_HR_Depart ?></p></div>
-                    <div><p><?= $Comp_Contact ?></p></div>
-                    <div><p><?= $Comp_Tel ?></p></div>
-                    <div><p><?= $Comp_Num_Add ?> 
+                    <div><?= $Comp_HR_Name ?></p></div>
+                    <div><?= $Comp_HR_Depart ?></p></div>
+                    <div><?= $Comp_Contact ?></p></div>
+                    <div><?= $Comp_Tel ?></p></div>
+                    <div><?= $Comp_Num_Add ?> 
                         ม. <?= $Comp_Mu ?> 
                         ถนน <?= $Comp_Road ?> 
                         ซอย <?= $Comp_Alley ?> 

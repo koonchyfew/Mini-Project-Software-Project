@@ -29,7 +29,7 @@ body {
 }
 .header .bar-user{
     display: flex;
-    align-items: right;
+    align-items: center;
 }
 .menu {
     display: flex;
@@ -145,13 +145,13 @@ body {
     cursor: pointer;
   }
   
-
+  /* The container <div> - needed to position the dropdown content */
   .dropdown {
     position: relative;
     display: inline-block;
   }
   
- 
+  /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
     display: none;
     position: absolute;
@@ -258,7 +258,6 @@ body {
     text-align: center;
    
 }
-
 .profile-card img {
     width: 130px;
     height: 130px;
@@ -296,12 +295,15 @@ body {
 
 .info-list .fix-text{
     text-align: left;
+    margin-bottom: auto;
+    
 }
 
 
 .info-list .nonfix-text{
     margin-left: 40px;
     text-align: left;
+    margin-bottom: auto;
 }
 
 .edit-link {
@@ -511,16 +513,4 @@ input[type="file"] {
 }
 .button-group a {
     text-decoration: none;
-}
-.table-wrapper {
-    display: flex;
-    gap: 20px; /* Add space between the tables */
-}
-.profile-card2 {
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: #ffffff;
-    width: 200px;
-    height: 400px;
 }
